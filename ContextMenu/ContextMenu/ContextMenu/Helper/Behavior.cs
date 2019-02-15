@@ -1,10 +1,16 @@
-# How-to-display-context-menu-when-tapping-in-Xamarin.Forms-ListView?
+﻿using Syncfusion.DataSource;
+using Syncfusion.DataSource.Extensions;
+using Syncfusion.ListView.XForms;
+using Syncfusion.XForms.PopupLayout;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
-This example demonstrates how to display a pop-up menu with different menu items to an item when it is long pressed by customizing the SfListView and by using custom view in it. For UWP platform, you can also display the pop-up menu when pressing right click button over the item. Display the pop-up menu by accessed the touch position in the item based on [Position](https://help.syncfusion.com/cr/cref_files/xamarin/Syncfusion.SfListView.XForms~Syncfusion.ListView.XForms.ItemHoldingEventArgs~Position.html) property from [ItemHolding](https://help.syncfusion.com/cr/cref_files/xamarin/Syncfusion.SfListView.XForms~Syncfusion.ListView.XForms.SfListView~ItemHolding_EV.html) event.
-
-Defining SfPopUpView
-
-```
 namespace SfListViewSample
 {
     public class Behavior : Behavior<SfListView>
@@ -75,6 +81,7 @@ namespace SfListViewSample
                 popupLayout.Show((double)(e.Position.X - 100), (double)(e.Position.Y - 100));
             else
                 popupLayout.Show((double)e.Position.X, (double)(e.Position.Y));
+
         }
 
         private void SortButton_Clicked(object sender, EventArgs e)
@@ -120,41 +127,3 @@ namespace SfListViewSample
         }
     }
 }
-
-```
-
-Defining the SfListView
-
-```
-<ContentPage xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
-  <ContentPage.BindingContext>
-    <local:ContactsViewModel x:Name="viewModel"/>
-  </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <Grid>
-            <listView:SfListView x:Name="listView" ItemsSource="{Binding Items}" >
-                <listView:SfListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Image Source="{Binding ContactImage}"/>
-                            <Label Text="{Binding ContactName}" />
-                            <Label Text="{Binding ContactNumber}" />
-                        </Grid>
-                    </DataTemplate>
-                </listView:SfListView.ItemTemplate>
-            <listView:SfListView>
-        </Grid>
-    </ContentPage.Content>
-</ContentPage>
-
-```
-## Requirements to run the demo
-
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
-* Xamarin add-ons for Visual Studio (available via the Visual Studio installer).
-
-## Troubleshooting
-
-### Path too long exception
-
-If you are facing path too long exception when building this example project, close Visual Studio and rename the repository to short and build the project.

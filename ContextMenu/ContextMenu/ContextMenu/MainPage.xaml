@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SfListViewSample"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="SfListViewSample.MainPage">
+    <ContentPage.BindingContext>
+        <local:ContactsViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+            <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <syncfusion:SfListView x:Name="listView" SelectionMode="Single" ItemSize="75" 
+                                    ItemsSource="{Binding contactsinfo}">
+                <syncfusion:SfListView.Behaviors>
+                    <local:Behavior/>
+                </syncfusion:SfListView.Behaviors>
+                <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                <StackLayout>
+
+                                    <Grid VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{Binding ContactImage}" HeightRequest="50" WidthRequest="50" Grid.Column="0"/>
+                                        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="1">
+                                            <Label LineBreakMode="WordWrap"                                                        VerticalOptions="Center" HorizontalOptions="Center"
+                                                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                   TextColor="#474747" 
+                                                   Text="{Binding ContactName}"/>
+                                            <Label LineBreakMode="WordWrap" 
+                                                   VerticalOptions="Center" HorizontalOptions="Center"
+                                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                   TextColor="#474747"
+                                                   Text="{Binding ContactNumber}">
+                                            </Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <StackLayout HeightRequest="1" BackgroundColor="Gray"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+
+                </syncfusion:SfListView>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

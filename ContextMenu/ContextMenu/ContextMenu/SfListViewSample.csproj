@@ -39,8 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\GroupCollapse.png" />
-    <EmbeddedResource Include="Images\GroupExpand.png" />
     <EmbeddedResource Include="Images\Image0.png" />
     <EmbeddedResource Include="Images\Image1.png" />
     <EmbeddedResource Include="Images\Image10.png" />

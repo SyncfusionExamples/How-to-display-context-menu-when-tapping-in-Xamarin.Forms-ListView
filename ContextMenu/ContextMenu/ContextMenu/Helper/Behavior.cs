@@ -30,12 +30,18 @@ namespace SfListViewSample
 
         private void ListView_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
-            popupLayout.Dismiss();
+            if (popupLayout != null)
+            {
+                popupLayout.Dismiss();
+            }
         }
 
         private void ListView_ScrollStateChanged(object sender, ScrollStateChangedEventArgs e)
         {
-            popupLayout.Dismiss();
+            if (popupLayout != null)
+            {
+                popupLayout.Dismiss();
+            }
         }
 
         private void ListView_ItemHolding(object sender, ItemHoldingEventArgs e)

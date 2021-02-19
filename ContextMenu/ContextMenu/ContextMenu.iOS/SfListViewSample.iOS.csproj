@@ -149,17 +149,18 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
-      <Version>16.4.0.53</Version>
+      <Version>18.4.0.35</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout">
-      <Version>16.4.0.53</Version>
+      <Version>18.4.0.35</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
+    <PackageReference Include="Xamarin.Forms">
+      <Version>4.5.0.617</Version>
+    </PackageReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\SfListViewSample\SfListViewSample.csproj">
-      <Project>{10D70768-EAE5-4820-947E-ADEF2874D8A9}</Project>
+    <ProjectReference Include="..\ContextMenu\SfListViewSample.csproj">
+      <Project>{a67c6d4d-d8f0-46e8-8a16-6e5b20867fe4}</Project>
       <Name>SfListViewSample</Name>
     </ProjectReference>
   </ItemGroup>
